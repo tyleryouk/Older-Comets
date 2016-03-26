@@ -1042,8 +1042,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SpaceUp/Santa Express.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Youk (REFGKC7YRH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tyler Youk (REFGKC7YRH)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1054,7 +1054,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TylerYouk.TrumpVsEveryone;
 				PRODUCT_NAME = "Santa Express";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "be0ae66a-868d-43ee-b8cd-043db0af6c54";
 				"Texture Atlas Maximum Size" = 4096x4096;
 			};
 			name = Debug;
@@ -1064,8 +1064,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SpaceUp/Santa Express.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tyler Youk (4H2CPZLR9S)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tyler Youk (4H2CPZLR9S)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1076,7 +1076,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TylerYouk.TrumpVsEveryone;
 				PRODUCT_NAME = "Santa Express";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d3fc36cc-263d-423c-b3ad-0ddf49dd5a5b";
 				"Texture Atlas Maximum Size" = 4096x4096;
 			};
 			name = Release;
