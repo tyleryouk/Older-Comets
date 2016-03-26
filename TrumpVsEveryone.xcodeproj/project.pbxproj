@@ -176,7 +176,7 @@
 		43C05DF11B2A81A4009B8148 /* SamplingFilterType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SamplingFilterType.swift; path = Types/SamplingFilterType.swift; sourceTree = "<group>"; };
 		43F1ABB21B2127DE00DA1E1D /* MathHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathHelper.swift; path = Helpers/MathHelper.swift; sourceTree = "<group>"; };
 		475F23841CA277B10039276A /* EnemiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemiesView.swift; sourceTree = "<group>"; };
-		EB0211E81B1DCF990087B2E6 /* Santa Express.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santa Express.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB0211E81B1DCF990087B2E6 /* TrumpVsEveryone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrumpVsEveryone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0211EC1B1DCF990087B2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB0211ED1B1DCF990087B2E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0211F61B1DCF9A0087B2E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -371,7 +371,7 @@
 		EB0211E91B1DCF990087B2E6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB0211E81B1DCF990087B2E6 /* Santa Express.app */,
+				EB0211E81B1DCF990087B2E6 /* TrumpVsEveryone.app */,
 				EB0212011B1DCF9A0087B2E6 /* SpaceUpTests.xctest */,
 			);
 			name = Products;
@@ -696,7 +696,7 @@
 			);
 			name = SpaceUp;
 			productName = SpaceUp;
-			productReference = EB0211E81B1DCF990087B2E6 /* Santa Express.app */;
+			productReference = EB0211E81B1DCF990087B2E6 /* TrumpVsEveryone.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EB0212001B1DCF9A0087B2E6 /* SpaceUpTests */ = {
@@ -1053,8 +1053,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TylerYouk.TrumpVsEveryone;
-				PRODUCT_NAME = "Santa Express";
-				PROVISIONING_PROFILE = "be0ae66a-868d-43ee-b8cd-043db0af6c54";
+				PRODUCT_NAME = TrumpVsEveryone;
+				PROVISIONING_PROFILE = "940b3c81-33f5-443f-98cb-cfb35ae614ec";
 				"Texture Atlas Maximum Size" = 4096x4096;
 			};
 			name = Debug;
@@ -1075,8 +1075,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TylerYouk.TrumpVsEveryone;
-				PRODUCT_NAME = "Santa Express";
-				PROVISIONING_PROFILE = "d3fc36cc-263d-423c-b3ad-0ddf49dd5a5b";
+				PRODUCT_NAME = TrumpVsEveryone;
+				PROVISIONING_PROFILE = "fd62c587-fa55-4d80-876e-b9ea26e261c0";
 				"Texture Atlas Maximum Size" = 4096x4096;
 			};
 			name = Release;
