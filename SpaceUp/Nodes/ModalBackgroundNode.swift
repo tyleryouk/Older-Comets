@@ -22,12 +22,12 @@ class ModalBackgroundNode: SKShapeNode {
     
     // Path
     path = CGPathCreateWithRoundedRect(CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height), 10, 10, nil)
-    fillColor = UIColor(red: 41/255, green: 46/255, blue: 113/255, alpha: 0.3)
+    fillColor = UIColor.init(hexString: "#cccccc", alpha: 0.3)//#f6f655 /*UIColor(red: 242, green: 242, blue: 243, alpha: 0.3)*/
     strokeColor = UIColor.clearColor()
     
     // Foreground
     foreground.position = CGPoint(x: 0, y: 0)
-    foreground.fillColor = UIColor(red: 41/255, green: 46/255, blue: 113/255, alpha: 1)
+    foreground.fillColor = UIColor.init(hexString: "#cccccc", alpha: 1)/*UIColor(red: 51, green: 204, blue: 51, alpha: 1)*/
     foreground.strokeColor = UIColor.clearColor()
     foreground.userInteractionEnabled = false
     addChild(foreground)

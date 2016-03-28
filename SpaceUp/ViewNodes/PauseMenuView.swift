@@ -1,11 +1,3 @@
-//
-//  PauseMenuView.swift
-//  SpaceUp
-//
-//  Created by David Chin on 26/05/2015.
-//  Copyright (c) 2015 David Chin. All rights reserved.
-//
-
 import SpriteKit
 
 class PauseMenuView: ModalView {
