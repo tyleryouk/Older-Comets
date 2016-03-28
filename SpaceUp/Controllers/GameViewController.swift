@@ -466,7 +466,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
   }
   
   func gameSceneDidStart(gameScene: GameScene) {
-    prepareInterstitialAd()
+    //prepareInterstitialAd() //JUST DELETED
   }
   
   func gameSceneDidRequestRetry(gameScene: GameScene) {
@@ -586,7 +586,8 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
     presentStoreActionSheet()
   }
     
-    override func viewWillLayoutSubviews() {
+  override func viewWillLayoutSubviews() {
+
         super.viewWillLayoutSubviews();
         
         
@@ -594,3 +595,4 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
         appDelegate.viewController = self;
     }
 }
+

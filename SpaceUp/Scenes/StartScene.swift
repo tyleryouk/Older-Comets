@@ -10,7 +10,7 @@ import SpriteKit
 
 class StartScene: SKScene, ButtonDelegate {
   // MARK: - Immutable var
-  let background = EndlessBackgroundNode(imageNames: [TextureFileName.Background])
+  let background = EndlessBackgroundNode(imageNames: [TextureFileName.StartBackground])
   let galaxyStars = EndlessBackgroundNode(imageNames: [TextureFileName.BackgroundStars])
   let logo = SKSpriteNode(imageNamed: TextureFileName.StartLogo)
   let startButton = SpriteButtonNode(imageNamed: TextureFileName.ButtonPlay)

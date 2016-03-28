@@ -38,43 +38,18 @@ let currentScore: Int
     self.currentScore = currentScore
     var duration = NSTimeInterval(toPosition.distanceTo(fromPosition) / speed)
     
-    if(currentScore <= 100){
-        switch type {
-        case .Slow:
-            duration *= 2.0
+    switch type {
+    case .Slow:
+        duration *= 1.5
+            
+    case .Fast:
+        duration *= 0.5
+            
+    default:
+        break
+    }
+            
     
-        case .Fast:
-            duration *= 1.0
-
-        default:
-            break
-        }
-    }
-    if(currentScore > 100 && currentScore <= 200){
-        switch type {
-        case .Slow:
-            duration *= 1.5
-            
-        case .Fast:
-            duration *= 0.5
-            
-        default:
-            break
-        }
-    }
-    if(currentScore > 200){
-        switch type {
-        case .Slow:
-            duration *= 1.0
-            
-        case .Fast:
-            duration *= 0.5
-            
-        default:
-            break
-        }
-            
-    }
     
     self.duration = duration
   }
@@ -102,11 +77,12 @@ let currentScore: Int
       let cometAction = SKAction.sequence([
         SKAction.runBlock { [weak self] in
           if let emitter = self {
-            let comet = emitter.addComet()
+                let comet = emitter.addComet()
             
-            emitter.revealComet(comet, fromPosition: startPosition, toPosition: emitter.toPosition)
+                emitter.revealComet(comet, fromPosition: startPosition, toPosition: emitter.toPosition)
 
-            startPosition = emitter.fromPosition
+                startPosition = emitter.fromPosition
+            
           }
         },
         SKAction.waitForDuration(delayDuration)
