@@ -70,11 +70,11 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
     
     // Notification
     let notificationCenter = NSNotificationCenter.defaultCenter()
-    notificationCenter.addObserver(self, selector: #selector(GameViewController.paymentTransactionDidComplete(_:)), name: PaymentTransactionDidCompleteNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(GameViewController.paymentTransactionDidRestore(_:)), name: PaymentTransactionDidRestoreNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(GameViewController.paymentTransactionDidFail(_:)), name: PaymentTransactionDidFailNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillResignActive(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"paymentTransactionDidComplete:" , name: PaymentTransactionDidRestoreNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"paymentTransactionDidRestore:" , name: PaymentTransactionDidRestoreNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"paymentTransactionDidFail:" , name: PaymentTransactionDidRestoreNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"applicationWillResignActive:", name: UIApplicationWillResignActiveNotification, object: nil)
+    notificationCenter.addObserver(self, selector: "applicationDidBecomeActive:", name: UIApplicationDidBecomeActiveNotification, object: nil)
   }
   
   override func viewWillDisappear(animated: Bool) {
@@ -127,64 +127,75 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
   }
   
   func preloadAndPresentStartScene(completion: ((StartScene) -> Void)? = nil) {
-    let textureAtlases: [SKTextureAtlas] = [
-      SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
-    ]
     
-    let textures: [SKTexture] = [
-      SKTexture(imageNamed: TextureFileName.Background),
-      SKTexture(imageNamed: TextureFileName.BackgroundStars),
-      SKTexture(imageNamed: TextureFileName.StartLogo)
-    ]
-    
-    // Show loading scene
-    presentLoadingScene(.Blank)
-    
-    // Preload textures
-    preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
-      // Present game scene
-      if let scene = self?.presentStartScene() {
-        // Retain preloaded textures
-        scene.textureAtlases = textureAtlases
-        scene.textures = textures
+    autoreleasepool { () -> () in
+        let textureAtlases: [SKTextureAtlas] = [
+            SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
+        ]
         
-        completion?(scene)
-      }
+        let textures: [SKTexture] = [
+            SKTexture(imageNamed: TextureFileName.Background),
+            SKTexture(imageNamed: TextureFileName.BackgroundStars),
+            SKTexture(imageNamed: TextureFileName.StartLogo)
+        ]
+        
+        // Show loading scene
+        presentLoadingScene(.Blank)
+        
+        // Preload textures
+        preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
+            // Present game scene
+            if let scene = self?.presentStartScene() {
+                // Retain preloaded textures
+                scene.textureAtlases = textureAtlases
+                scene.textures = textures
+                
+                completion?(scene)
+            }
+        }
     }
+    
+    
   }
   
   func preloadAndPresentGameScene(completion: ((GameScene) -> Void)? = nil) {
-    let textureAtlases: [SKTextureAtlas] = [
-      SKTextureAtlas(named: TextureAtlasFileName.Environment),
-      SKTextureAtlas(named: TextureAtlasFileName.Character),
-      SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
-    ]
     
-    let textures: [SKTexture] = [
-      SKTexture(imageNamed: TextureFileName.Background),
-      SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets),
-      SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets, index: 2),
-      SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets),
-      SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets, index: 2),
-      SKTexture(imageNamed: TextureFileName.BackgroundStars),
-      SKTexture(imageNamed: TextureFileName.PlanetGround)
-    ]
-    
-    // Show loading scene
-    presentLoadingScene()
-
-    // Preload textures
-    preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
-      // Present game scene
-      if let scene = self?.presentGameScene() {
-        // Retain preloaded textures
-        scene.textureAtlases = textureAtlases
-        scene.textures = textures
+    autoreleasepool { () -> () in
+        let textureAtlases: [SKTextureAtlas] = [
+            SKTextureAtlas(named: TextureAtlasFileName.Environment),
+            SKTextureAtlas(named: TextureAtlasFileName.Character),
+            SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
+        ]
         
-        completion?(scene)
-      }
+        let textures: [SKTexture] = [
+            SKTexture(imageNamed: TextureFileName.Background),
+            SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets),
+            SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets, index: 2),
+            SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets),
+            SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets, index: 2),
+            SKTexture(imageNamed: TextureFileName.BackgroundStars),
+            SKTexture(imageNamed: TextureFileName.PlanetGround)
+        ]
+        
+        // Show loading scene
+        presentLoadingScene()
+        
+        // Preload textures
+        preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
+            // Present game scene
+            if let scene = self?.presentGameScene() {
+                // Retain preloaded textures
+                scene.textureAtlases = textureAtlases
+                scene.textures = textures
+                
+                completion?(scene)
+            }
+        }
+
     }
-  }
+    
+   
+    }
   
   func presentLoadingScene(type: LoadingSceneType = .Regular) -> LoadingScene {
     let scene = LoadingScene(size: SceneSize, type: type)
@@ -261,9 +272,15 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
     }
 
     // Container view
+<<<<<<< HEAD
     /*interstitialAdView = InterstitialAdView(frame: skView.bounds) //NOW
     interstitialAdView!.closeButton.addTarget(self, action: #selector(GameViewController.closeInterstitialAd), forControlEvents: .TouchUpInside)
     skView.addSubview(interstitialAdView!)*/
+=======
+    interstitialAdView = InterstitialAdView(frame: skView.bounds)
+    interstitialAdView!.closeButton.addTarget(self, action: "closeInterstitialAd", forControlEvents: .TouchUpInside)
+    skView.addSubview(interstitialAdView!)
+>>>>>>> a645440bc6253e07b2ce0e4c5668f4683c179008
     
     // Pause view
     skView.paused = true

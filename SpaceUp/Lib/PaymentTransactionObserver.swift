@@ -36,8 +36,8 @@ class PaymentTransactionObserver: NSObject, SKPaymentTransactionObserver {
   func failedTransaction(transaction: SKPaymentTransaction) {
     let queue = SKPaymentQueue.defaultQueue()
     
-    if let error = transaction.error where error.code != SKErrorCode.PaymentCancelled.rawValue {
-      print("Transaction error: \(error.localizedDescription)")
+    if let error = transaction.error where error.code != SKErrorPaymentCancelled {
+        print("Transaction error: \(error.localizedDescription)")
     }
     
     queue.finishTransaction(transaction)
