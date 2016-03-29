@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 David Chin. All rights reserved.
 //
 
-import UIKit
+/*import UIKit
 import iAd
 import GoogleMobileAds
 
@@ -50,4 +50,4 @@ class InterstitialAdView: UIView {
 
     bringSubviewToFront(closeButton)
   }
-}
+}*/

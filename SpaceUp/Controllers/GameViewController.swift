@@ -21,7 +21,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
   let motionManager = CMMotionManager()
   
   // MARK: - Vars
-  private var interstitialAdView: InterstitialAdView?
+  //private var interstitialAdView: InterstitialAdView? //NOW
   private var interstitialAd: ADInterstitialAd?
   private var numberOfRetriesSinceLastAd: UInt = 0
   private var products: [SKProduct]?
@@ -261,22 +261,22 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
     }
 
     // Container view
-    interstitialAdView = InterstitialAdView(frame: skView.bounds)
+    /*interstitialAdView = InterstitialAdView(frame: skView.bounds) //NOW
     interstitialAdView!.closeButton.addTarget(self, action: #selector(GameViewController.closeInterstitialAd), forControlEvents: .TouchUpInside)
-    skView.addSubview(interstitialAdView!)
+    skView.addSubview(interstitialAdView!)*/
     
     // Pause view
     skView.paused = true
     
     // Present ad in view
-    interstitialAdView!.presentInterstitialAd(interstitialAd!)
+    //interstitialAdView!.presentInterstitialAd(interstitialAd!) ///NOW
     
     return true
   }
   
   func closeInterstitialAd() {
     // Clean up
-    interstitialAdView?.removeFromSuperview()
+    //interstitialAdView?.removeFromSuperview() //NOW
     resetInterstitialAd()
     
     // Restart game
@@ -293,7 +293,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
   func resetInterstitialAd() {
     interstitialAd?.delegate = nil
     interstitialAd = nil
-    interstitialAdView = nil
+    //interstitialAdView = nil //NOW
   }
   
   // MARK: - IAP
