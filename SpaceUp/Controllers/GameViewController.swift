@@ -70,11 +70,11 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
     
     // Notification
     let notificationCenter = NSNotificationCenter.defaultCenter()
-    notificationCenter.addObserver(self, selector: #selector(GameViewController.paymentTransactionDidComplete(_:)), name: PaymentTransactionDidCompleteNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(GameViewController.paymentTransactionDidRestore(_:)), name: PaymentTransactionDidRestoreNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(GameViewController.paymentTransactionDidFail(_:)), name: PaymentTransactionDidFailNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillResignActive(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"paymentTransactionDidComplete:" , name: PaymentTransactionDidRestoreNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"paymentTransactionDidRestore:" , name: PaymentTransactionDidRestoreNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"paymentTransactionDidFail:" , name: PaymentTransactionDidRestoreNotification, object: nil)
+    notificationCenter.addObserver(self, selector:"applicationWillResignActive:", name: UIApplicationWillResignActiveNotification, object: nil)
+    notificationCenter.addObserver(self, selector: "applicationDidBecomeActive:", name: UIApplicationDidBecomeActiveNotification, object: nil)
   }
   
   override func viewWillDisappear(animated: Bool) {
@@ -262,7 +262,7 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
 
     // Container view
     interstitialAdView = InterstitialAdView(frame: skView.bounds)
-    interstitialAdView!.closeButton.addTarget(self, action: #selector(GameViewController.closeInterstitialAd), forControlEvents: .TouchUpInside)
+    interstitialAdView!.closeButton.addTarget(self, action: "closeInterstitialAd", forControlEvents: .TouchUpInside)
     skView.addSubview(interstitialAdView!)
     
     // Pause view
