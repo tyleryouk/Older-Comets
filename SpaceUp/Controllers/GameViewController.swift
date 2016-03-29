@@ -127,64 +127,75 @@ class GameViewController: UIViewController, GKGameCenterControllerDelegate, ADIn
   }
   
   func preloadAndPresentStartScene(completion: ((StartScene) -> Void)? = nil) {
-    let textureAtlases: [SKTextureAtlas] = [
-      SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
-    ]
     
-    let textures: [SKTexture] = [
-      SKTexture(imageNamed: TextureFileName.Background),
-      SKTexture(imageNamed: TextureFileName.BackgroundStars),
-      SKTexture(imageNamed: TextureFileName.StartLogo)
-    ]
-    
-    // Show loading scene
-    presentLoadingScene(.Blank)
-    
-    // Preload textures
-    preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
-      // Present game scene
-      if let scene = self?.presentStartScene() {
-        // Retain preloaded textures
-        scene.textureAtlases = textureAtlases
-        scene.textures = textures
+    autoreleasepool { () -> () in
+        let textureAtlases: [SKTextureAtlas] = [
+            SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
+        ]
         
-        completion?(scene)
-      }
+        let textures: [SKTexture] = [
+            SKTexture(imageNamed: TextureFileName.Background),
+            SKTexture(imageNamed: TextureFileName.BackgroundStars),
+            SKTexture(imageNamed: TextureFileName.StartLogo)
+        ]
+        
+        // Show loading scene
+        presentLoadingScene(.Blank)
+        
+        // Preload textures
+        preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
+            // Present game scene
+            if let scene = self?.presentStartScene() {
+                // Retain preloaded textures
+                scene.textureAtlases = textureAtlases
+                scene.textures = textures
+                
+                completion?(scene)
+            }
+        }
     }
+    
+    
   }
   
   func preloadAndPresentGameScene(completion: ((GameScene) -> Void)? = nil) {
-    let textureAtlases: [SKTextureAtlas] = [
-      SKTextureAtlas(named: TextureAtlasFileName.Environment),
-      SKTextureAtlas(named: TextureAtlasFileName.Character),
-      SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
-    ]
     
-    let textures: [SKTexture] = [
-      SKTexture(imageNamed: TextureFileName.Background),
-      SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets),
-      SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets, index: 2),
-      SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets),
-      SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets, index: 2),
-      SKTexture(imageNamed: TextureFileName.BackgroundStars),
-      SKTexture(imageNamed: TextureFileName.PlanetGround)
-    ]
-    
-    // Show loading scene
-    presentLoadingScene()
-
-    // Preload textures
-    preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
-      // Present game scene
-      if let scene = self?.presentGameScene() {
-        // Retain preloaded textures
-        scene.textureAtlases = textureAtlases
-        scene.textures = textures
+    autoreleasepool { () -> () in
+        let textureAtlases: [SKTextureAtlas] = [
+            SKTextureAtlas(named: TextureAtlasFileName.Environment),
+            SKTextureAtlas(named: TextureAtlasFileName.Character),
+            SKTextureAtlas(named: TextureAtlasFileName.UserInterface)
+        ]
         
-        completion?(scene)
-      }
+        let textures: [SKTexture] = [
+            SKTexture(imageNamed: TextureFileName.Background),
+            SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets),
+            SKTexture(imageNamed: TextureFileName.BackgroundSmallPlanets, index: 2),
+            SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets),
+            SKTexture(imageNamed: TextureFileName.BackgroundLargePlanets, index: 2),
+            SKTexture(imageNamed: TextureFileName.BackgroundStars),
+            SKTexture(imageNamed: TextureFileName.PlanetGround)
+        ]
+        
+        // Show loading scene
+        presentLoadingScene()
+        
+        // Preload textures
+        preloadTextures(textures, textureAtlases: textureAtlases) { [weak self] in
+            // Present game scene
+            if let scene = self?.presentGameScene() {
+                // Retain preloaded textures
+                scene.textureAtlases = textureAtlases
+                scene.textures = textures
+                
+                completion?(scene)
+            }
+        }
+
     }
-  }
+    
+   
+    }
   
   func presentLoadingScene(type: LoadingSceneType = .Regular) -> LoadingScene {
     let scene = LoadingScene(size: SceneSize, type: type)
